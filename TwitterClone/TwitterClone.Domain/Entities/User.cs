@@ -3,9 +3,9 @@
     public class User
     {
         private Guid _id;
-        private string _FirstName;
-        private string _LastName;
-        private string _Email;
+        private string _FirstName = string.Empty;
+        private string _LastName = string.Empty;
+        private string _Email = string.Empty;
 
         public User() {
             _id = Guid.NewGuid();
