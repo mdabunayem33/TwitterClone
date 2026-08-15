@@ -1,10 +1,18 @@
 ﻿namespace TwitterClone.Domain.Entities
 {
     public class Like
-    {
+    {   private Guid _id;
         private Guid _userId;
         private Guid _tweetId;
-        private DateTime _likedAt;
+        private DateTime _createdAt;
+        private DateTime _modifiedAt;
+
+        public Like()
+        {
+            _id = Guid.NewGuid();
+            _createdAt = DateTime.UtcNow;
+        }
+
         public Guid UserId
         {
             get { return _userId; }
@@ -13,9 +21,15 @@
         {
             get { return _tweetId; }
         }
-        public DateTime LikedAt
+        public DateTime CreatedAt
         {
-            get { return _likedAt; }
+            get { return _createdAt; }
         }
+        public DateTime ModifiedAt
+        {
+            get { return _modifiedAt; }
+            set { _modifiedAt = value; }
+        }
+
     }
 }
