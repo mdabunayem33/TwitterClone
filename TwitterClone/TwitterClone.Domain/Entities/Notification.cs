@@ -37,7 +37,10 @@
             get { return _isRead; }
             set { _isRead = value; }
         }
-
+        public string GetNotificationInfo()
+        {
+            return $"UserId: {_userId}, NotificationType: {_type}";
+        }
         public abstract string GetMassage();
        
 
