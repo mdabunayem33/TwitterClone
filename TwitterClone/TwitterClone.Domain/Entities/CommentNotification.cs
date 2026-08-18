@@ -13,5 +13,10 @@
         {
             Message = message;
         }   
+
+        public override string GetMassage()
+        {
+            return $"User with ID {CommentedByUserId} commented on your post.";
+        }
     }
 }

@@ -24,5 +24,7 @@
             return $"Id: {Id}, CreatedAt: {CreatedAt}, UpdatedAt: {UpdatedAt}, CreatedBy: {CreatedBy}, UpdatedBy: {UpdatedBy}";
         }
 
+
+
     }
 }

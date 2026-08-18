@@ -13,5 +13,11 @@
         {
             Message = message;
         }   
+
+        public override string GetMassage()
+        {
+            return $"User with ID {RequestedByUserId} sent you a friend request.";
+        }
+
     }
 }
