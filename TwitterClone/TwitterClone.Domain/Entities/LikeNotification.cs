@@ -21,5 +21,10 @@ namespace TwitterClone.Domain.Entities
             return $"{baseRecord} - Notification Type: {Type}, Message: {Message}, IsRead: {IsRead}, LikeByUserId: {LikeByUserId}";
         }
 
+        public override string GetMassage()
+        {
+            return $"User with ID {LikeByUserId} liked your post.";
+        }
+
     }
 }
