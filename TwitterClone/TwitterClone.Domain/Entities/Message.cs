@@ -2,7 +2,6 @@
 {
     public class Message : BaseEntity
     {
-       
         private Guid _senderId;
         private Guid _receiverId;
         private string _content;
@@ -11,7 +10,7 @@
 
         public Message() : base(Guid.NewGuid())
         {
-            
+
         }
 
         public Guid SenderId
@@ -44,5 +43,10 @@
             set { _isRead = value; }
         }
 
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, SenderId: {SenderId}, ReceiverId: {ReceiverId}, Content: {Content}, SentAt: {SentAt}, IsRead: {IsRead}";
+        }
     }
 }

@@ -1,9 +1,14 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class LikeNotification : Notification
+    public sealed class LikeNotification : Notification
     {
+
         public LikeNotification(Guid likeByUserId) : base("Like")
         {
             LikeByUserId = likeByUserId;
@@ -15,16 +20,12 @@ namespace TwitterClone.Domain.Entities
         {
             Message = message;
         }
-        public override string DescribeRecord()
-        {
-            var baseRecord =base.DescribeRecord();
-            return $"{baseRecord} - Notification Type: {Type}, Message: {Message}, IsRead: {IsRead}, LikeByUserId: {LikeByUserId}";
-        }
 
-        public override string GetMassage()
+
+
+        public override string GetMessage()
         {
             return $"User with ID {LikeByUserId} liked your post.";
         }
-
     }
 }

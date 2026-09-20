@@ -7,6 +7,7 @@
 
         public Follow() : base(Guid.NewGuid())
         {
+
         }
 
         public Guid FollowerId
@@ -21,7 +22,10 @@
             set { _followingId = value; }
         }
 
-       
-
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, FollowerId: {FollowerId}, FollowingId: {FollowingId}";
+        }
     }
 }
