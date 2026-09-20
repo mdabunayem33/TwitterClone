@@ -1,16 +1,4 @@
-﻿using TwitterClone.Domain.Entities;
+﻿using Twitter.Test;
 
-
-var notifications = new List<Notification>()
-            {
-                new LikeNotification(Guid.NewGuid()),
-                new CommentNotification(Guid.NewGuid()),
-                new FriendRequestNotification(Guid.NewGuid()),
-                new MentionNotification(Guid.NewGuid()),
-                new SystemNotification()
-            };
-
-foreach (var notification in notifications)
-{
-    Console.WriteLine(notification.GetMessage());
-}
+var class9Test = new Class9Test();
+class9Test.Run();

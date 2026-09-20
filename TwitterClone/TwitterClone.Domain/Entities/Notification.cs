@@ -2,17 +2,17 @@
 {
     public abstract class Notification : BaseEntity
     {
-        
         private Guid _userId;
         private string _type;
         private string _message;
         private bool _isRead;
-    
-        public Notification(string notificationType ) : base(Guid.NewGuid())
+
+
+        public Notification(string notificationType) : base(Guid.NewGuid())
         {
             _type = notificationType;
-          
         }
+
 
         public Guid UserId
         {
@@ -37,13 +37,12 @@
             get { return _isRead; }
             set { _isRead = value; }
         }
+
         public string GetNotificationInfo()
         {
             return $"UserId: {_userId}, NotificationType: {_type}";
         }
-        public abstract string GetMassage();
-       
 
-
+        public abstract string GetMessage();
     }
 }

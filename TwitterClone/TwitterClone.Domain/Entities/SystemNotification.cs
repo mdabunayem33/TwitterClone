@@ -1,22 +1,31 @@
-﻿namespace TwitterClone.Domain.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TwitterClone.Domain.Entities
 {
     public sealed class SystemNotification : Notification
     {
         public SystemNotification() : base("System")
         {
+
         }
 
         public void AddMessage(string message)
         {
-            Message  = message;
+            Message = message;
         }
 
-        public override string GetMassage()
+        public override string DescribeRecord()
         {
-            return $"System Notification: {Message}";
+            return base.DescribeRecord();
         }
 
-        
-
+        public override string GetMessage()
+        {
+            return $"System Notification: Unknown Error";
+        }
     }
 }

@@ -1,22 +1,34 @@
-﻿namespace TwitterClone.Domain.Entities
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TwitterClone.Domain.Entities
 {
-    public class CommentNotification : Notification
+    public sealed class CommentNotification : Notification
     {
-        public CommentNotification(Guid commentedByUserId) : base("Comment")
+        public CommentNotification(Guid commentByUserId) : base("Comment")
         {
-            CommentedByUserId = commentedByUserId;
+            CommentByUserId = commentByUserId;
         }
 
-        public Guid CommentedByUserId { get; set; }
+        public Guid CommentByUserId { get; set; }
 
         public void AddMessage(string message)
         {
             Message = message;
-        }   
+        }
 
-        public override string GetMassage()
+        public override string DescribeRecord()
         {
-            return $"User with ID {CommentedByUserId} commented on your post.";
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, CommentByUserId: {CommentByUserId}";
+        }
+
+        public override string GetMessage()
+        {
+            return $"User with ID {CommentByUserId} commented on your post.";
         }
     }
 }
