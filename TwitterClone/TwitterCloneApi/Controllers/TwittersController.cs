@@ -1,16 +1,19 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TwitterClone.Domain.Entities;
+using TwitterCloneApi.Attributes;
 
 namespace TwitterCloneApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TwitterController : ControllerBase
+    [Authorize]
+    public class TwittersController : ControllerBase
     {
         private readonly IConfiguration _configuration;
 
-        public TwitterController(IConfiguration configuration)
+        public TwittersController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -21,6 +24,7 @@ namespace TwitterCloneApi.Controllers
             var connectionString = _configuration.GetValue<string>("Logging:LogLevel:Default");
         }
 
+        [Tweet]
         [HttpGet]
         public IActionResult GetTweets()
         {
