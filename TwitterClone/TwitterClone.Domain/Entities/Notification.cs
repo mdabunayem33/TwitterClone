@@ -1,4 +1,4 @@
-﻿namespace TwitterClone.Domain.Entities
+namespace TwitterClone.Domain.Entities
 {
     public abstract class Notification : BaseEntity
     {
@@ -6,13 +6,13 @@
         private string _type;
         private string _message;
         private bool _isRead;
-
+        
 
         public Notification(string notificationType) : base(Guid.NewGuid())
         {
             _type = notificationType;
         }
-
+       
 
         public Guid UserId
         {
